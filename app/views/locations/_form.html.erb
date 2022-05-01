@@ -1,0 +1,30 @@
+<%= form_with(model: location) do |form| %>
+  <% if location.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+        <% location.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div data-controller="location">
+    <div class="form-input">
+      <%= form.label :postal_code, class: 'form-label' %>
+      <%= form.number_field :postal_code, { class: 'form-control', data: { action: 'change->location#getCities' } } %>
+    <div>
+
+    <div class="form-input">
+      <%= form.label :city, class: 'form-label' %>
+      <%= form.select :city, [], { prompt: 'Select a city' }, { class: 'form-select', data: { location_target: 'citySelect', action: 'click->location#getStreets' } } %>
+    <div>
+
+    <div class="form-input">
+      <%= form.label :street, class: 'form-label' %>
+      <%= form.select :street, [], { prompt: 'Select a street' }, { class: 'form-select', data: { location_target: 'streetSelect' } } %>
+    <div>
+  </div>
+<% end %>

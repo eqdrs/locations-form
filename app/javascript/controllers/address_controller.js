@@ -8,7 +8,7 @@ export default class extends Controller {
     let postalCode = event.target.value
     let target = this.citySelectTarget.id
 
-    get(`/locations/cities?postal_code=${postalCode}&target=${target}`, {
+    get(`/addresses/cities?postal_code=${postalCode}&target=${target}`, {
       responseKind: "turbo-stream"
     })
   }
@@ -17,7 +17,7 @@ export default class extends Controller {
     let city = event.target.selectedOptions[0]?.value
     let target = this.streetSelectTarget?.id
 
-    get(`/locations/streets?city=${city}&target=${target}`, {
+    get(`/addresses/streets?city=${city}&target=${target}`, {
       responseKind: "turbo-stream"
     })
   }

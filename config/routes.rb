@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'locations#new'
+  root 'addresses#new'
 
-  resources :locations do
+  resources :addresses do
     collection do
       get :cities
       get :streets

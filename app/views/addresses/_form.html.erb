@@ -14,12 +14,21 @@
   <div data-controller="address">
     <div class="form-input">
       <%= form.label :postal_code, class: 'form-label' %>
-      <%= form.number_field :postal_code, { class: 'form-control', data: { action: 'change->address#getCities' }, placeholder: 'Enter your postal code' } %>
+      <%= form.number_field :postal_code,
+                            { data: { action: 'change->address#getCities' },
+                              class: 'form-control',
+                              placeholder: 'Enter your postal code' }
+      %>
     <div>
 
     <div class="form-input">
       <%= form.label :city, class: 'form-label' %>
-      <%= form.select :city, [], { prompt: 'Select a city' }, { class: 'form-select', data: { address_target: 'citySelect', action: 'click->address#getStreets' } } %>
+      <%= form.select :city,
+                      [],
+                      { prompt: 'Select a city' },
+                      { data: { address_target: 'citySelect', action: 'click->address#getStreets blur->address#getStreets' },
+                        class: 'form-select' }
+      %>
     <div>
 
     <div class="form-input">

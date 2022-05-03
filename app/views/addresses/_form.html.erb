@@ -33,7 +33,11 @@
 
     <div class="form-input">
       <%= form.label :street, class: 'form-label' %>
-      <%= form.select :street, [], { prompt: 'Select a street' }, { class: 'form-select', data: { address_target: 'streetSelect' } } %>
+      <%= form.select :street,
+                      [],
+                      { prompt: 'Select a street' },
+                      { data: { address_target: 'streetSelect' },
+                        class: 'form-select' } %>
     <div>
   </div>
 
